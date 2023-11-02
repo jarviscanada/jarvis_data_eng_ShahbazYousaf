@@ -53,7 +53,7 @@ SELECT * FROM host_usage;
 
 
 -- Execute ddl.sql script on the host_agent database againse the psql instance
-psql -h localhost -U postgres -d host_agent -f sql/ddl.sql
+-- psql -h localhost -U postgres -d host_agent -f sql/ddl.sql
 
 
 
