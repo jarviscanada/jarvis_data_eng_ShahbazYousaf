@@ -30,7 +30,7 @@ timestamp=$(vmstat -t | awk '{print $18, $19}' | tail -n1)
 host_id="(SELECT id FROM host_info WHERE hostname='$hostname')";
 
 
-insert_stmt="INSERT INTO host_info(id, hostname, cpu_number, cpu_architecture, cpu_model, cpu_mhz, l2_cache, timestamp, total_mem)    VALUES('$host_id', '$cpu_number', '$cpu_architecture', '$cpu_model', '$cpu_mhz', '$l2_cache', '$timestamp', '$total_mem')";
+insert_stmt="INSERT INTO host_info(id, hostname, cpu_number, cpu_architecture, cpu_model, cpu_mhz, l2_cache, timestamp, total_mem) VALUES('$host_id', '$cpu_number', '$cpu_architecture', '$cpu_model', '$cpu_mhz', '$l2_cache', '$timestamp', '$total_mem')";
 
 #set up env var for pql cmd
 export PGPASSWORD=$psql_password
