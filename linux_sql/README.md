@@ -72,27 +72,90 @@ Discuss how you implement the project.
 Draw a cluster diagram with three Linux hosts, a DB, and agents (use draw.io website). Image must be saved to the `assets` directory.
 
 ## Scripts
-Shell script description and usage (use markdown code block for script usage)
-- psql_docker.sh
-- host_info.sh
-- host_usage.sh
-- crontab
-- queries.sql (describe what business problem you are trying to resolve)
+Here are the key scripts used in the project:
+
+**`psql_docker.sh`:** This script simplifies the setup process by starting a Docker container running a PostgreSQL instance, making it easy to work with the database.
+```
+# script usage ./scripts/psql_docker.sh start|stop|create [db_username][db_password]
+```
+
+**`host_info.sh`:** Collects hardware specification data and inserts it into the database. This script is executed only once during the initial installation of the monitoring system.
+
+```
+# Script usage 
+bash scripts/host_info.sh psql_host psql_port db_name psql_user psql_password 
+# Example 
+bash scripts/host_info.sh localhost 5432 host_agent postgres password
+```
+
+**`host_usage.sh`:** Collects real-time server resource usage data, including CPU and Memory, and inserts it into the database. This script is scheduled to run every minute using crontab for continuous data collection.
+
+```
+# Script usage 
+bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password 
+# Example 
+bash scripts/host_usage.sh localhost 5432 host_agent postgres password
+```
+
+**`crontab`:** The crontab configuration file specifies when and how often `host_usage.sh` should be executed to ensure data is consistently collected.
+
+```
+crontab -l
+
+# validate your result from the psql instance
+psql -h localhost -U postgres -W
+\l to list the dbs
+\c host_agent
+\dt to list he tables/relations
+> SELECT * FROM host_usage;
+\q to quit psql instance
+```
+
+**`queries.sql`:** This file contains SQL queries to address various business questions by utilizing the collected data. It serves as a starting point for generating reports and insights from the data.
+The queries.sql script contains multiple queries which can be used to inform resource allocation
 
 ## Database Modeling
-Describe the schema of each table using markdown table syntax (do not put any sql code)
-- `host_info`
-- `host_usage`
+The project contains two main tables in the host_agent database:
+
+host_info Table:
+id (Serial): An auto-incrementing unique identifier for each host entry.
+hostname (VARCHAR): The hostname of the host, which is a string.
+cpu_number (INT2): The number of CPUs on the host.
+cpu_architecture (VARCHAR): The CPU architecture, which is a string.
+cpu_model (VARCHAR): The CPU model, which is a string.
+cpu_mhz (FLOAT8): The CPU clock speed in megahertz.
+l2_cache (INT4): The L2 cache size in bytes.
+timestamp (TIMESTAMP): The timestamp of when the data was collected. It can be null.
+total_mem (INT4): The total memory available on the host in bytes. It can be null.
+
+Constraints:
+Primary Key: id is the primary key, ensuring each record has a unique identifier.
+Unique Constraint: hostname is unique, ensuring that each host entry has a unique hostname.
+
+host_usage Table:
+timestamp (TIMESTAMP): The timestamp when the host usage data was recorded.
+host_id (Serial): A foreign key referencing the id column in the host_info table, linking host usage data to a specific host.
+memory_free (INT4): The amount of free memory in bytes.
+cpu_idle (INT2): The percentage of CPU idle time.
+cpu_kernel (INT2): The percentage of CPU kernel time.
+disk_io (INT4): The amount of disk input/output operations.
+disk_available (INT4): The amount of available disk space in bytes.
+
+Constraint:
+Foreign Key: host_id is a foreign key referencing the id column in the host_info table, ensuring that the host_usage data is associated with a specific host from the host_info table.
+
 
 # Test
-How did you test your bash scripts DDL? What was the result?
+The project was tested manually to verify the functionality of the Bash scripts. The SQL scripts were also tested against test data created by developers to ensure accurate results.
 
 # Deployment
-How did you deploy your app? (e.g. Github, crontab, docker)
+Deployment of the monitoring app involves setting up Git repositories for source code management, configuring crontab for automated data collection, and provisioning the database using Docker.
 
 # Improvements
 Write at least three things you want to improve 
 e.g. 
-- handle hardware updates 
-- blah
-- blah
+- Handling hardware updates for accurate data collection.
+- Implementing advanced monitoring and alerting features.
+- Enhancing security measures for data protection.
+- Devise a way to keep hardware specifications up to date
+
