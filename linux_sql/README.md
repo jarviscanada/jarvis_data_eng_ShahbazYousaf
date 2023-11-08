@@ -115,6 +115,7 @@ psql -h localhost -U postgres -W
 The queries.sql script contains multiple queries which can be used to inform resource allocation
 
 ## Database Modeling
+
 The project contains two main tables in the host_agent database:
 
 host_info Table:
@@ -132,6 +133,19 @@ Constraints:
 Primary Key: id is the primary key, ensuring each record has a unique identifier.
 Unique Constraint: hostname is unique, ensuring that each host entry has a unique hostname.
 
+| Column Name       | Data Type  | Constraints       |
+|-------------------|------------|-------------------|
+| id                | SERIAL     | PRIMARY KEY      |
+| hostname          | VARCHAR    | NOT NULL, UNIQUE |
+| cpu_number        | INT2       | NOT NULL          |
+| cpu_architecture  | VARCHAR    | NOT NULL          |
+| cpu_model         | VARCHAR    | NOT NULL          |
+| cpu_mhz           | FLOAT8     | NOT NULL          |
+| l2_cache          | INT4       | NOT NULL          |
+| timestamp         | TIMESTAMP  |                   |
+| total_mem         | INT4       |                   |
+
+
 host_usage Table:
 timestamp (TIMESTAMP): The timestamp when the host usage data was recorded.
 host_id (Serial): A foreign key referencing the id column in the host_info table, linking host usage data to a specific host.
@@ -143,6 +157,16 @@ disk_available (INT4): The amount of available disk space in bytes.
 
 Constraint:
 Foreign Key: host_id is a foreign key referencing the id column in the host_info table, ensuring that the host_usage data is associated with a specific host from the host_info table.
+
+| Column Name     | Data Type | Constraints                    |
+|-----------------|-----------|--------------------------------|
+| timestamp       | TIMESTAMP | NOT NULL                       |
+| host_id         | SERIAL    | NOT NULL                       |
+| memory_free     | INT4      | NOT NULL                       |
+| cpu_idle        | INT2      | NOT NULL                       |
+| cpu_kernel      | INT2      | NOT NULL                       |
+| disk_io         | INT4      | NOT NULL                       |
+| disk_available  | INT4      | NOT NULL                       |
 
 
 # Test
