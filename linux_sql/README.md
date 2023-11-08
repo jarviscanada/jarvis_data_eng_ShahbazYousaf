@@ -69,9 +69,7 @@ psql -h localhost -U postgres -W
 
 # Implemenation
 
-
-In the implementation of this project, a PostgreSQL instance was set up within a Docker container for data persistence. Two essential tables, host_info and host_usage, were created using the ddl.sql script to store hardware specifications and real-time resource usage data, respectively. A monitoring agent program, consisting of host_info.sh and host_usage.sh Bash scripts, was developed and deployed on each server to collect and insert hardware information and usage data into the PostgreSQL database. The host_usage.sh script was scheduled using crontab to run at regular intervals for continuous data collection. This solution provides the Linux Cluster Administration team with the capability to monitor the status of their cluster, record server specifications, and track resource usage for future planning, all within a Dockerized PostgreSQL environment.
-
+I began by establishing a Dockerized PostgreSQL environment using the psql_docker.sh script. Inside this Dockerized PostgreSQL environment, I created the host_agent database and defined its structure with the ddl.sql script, generating the host_info and host_usage tables. To automate harware and server usage data collection, I developed two Bash scripts: host_info.sh, responsible for gathering and inserting hardware specification data into the host_info table, and host_usage.sh, designed to continuously collect real-time server resource usage data, including CPU and memory, and insert it into the host_usage table. Finally, I configured crontab to automatically run the host_usage.sh script every minute, facilitating efficient data collection and regular reporting of server usage data.
 
 ## Architecture
 Draw a cluster diagram with three Linux hosts, a DB, and agents (use draw.io website). Image must be saved to the `assets` directory.
