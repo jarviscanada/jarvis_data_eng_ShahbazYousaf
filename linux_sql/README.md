@@ -176,7 +176,7 @@ Foreign Key: host_id is a foreign key referencing the id column in the host_info
 The project was tested manually to verify the functionality of the Bash scripts. The SQL scripts were also tested against test data created by developers to ensure accurate results.
 
 # Deployment
-Deployment of the monitoring app involves setting up Git repositories for source code management, configuring crontab for automated data collection, and provisioning the database using Docker.
+In deploying the monitoring app, I set up Git repositories for source code management, configured crontab for automated data collection, and provisioned the database using Docker. 
 
 # Improvements
 Write at least three things you want to improve 
