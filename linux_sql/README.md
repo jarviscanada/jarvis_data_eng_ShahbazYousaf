@@ -177,7 +177,7 @@ The project was tested manually to verify the functionality of the Bash scripts.
 In deploying the monitoring app, I set up Git repositories for source code management, configured crontab for automated data collection, and provisioned the database using Docker. 
 
 # Improvements
+- Enhancing security measures for data protection
 - Handling hardware updates for accurate data collection
 - Implementing advanced monitoring and alerting features when resources are underutilized or if resource usage reaches critial levels
-- Enhancing security measures for data protection
 
