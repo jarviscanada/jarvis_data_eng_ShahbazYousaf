@@ -73,7 +73,7 @@ I began by establishing a Dockerized PostgreSQL environment using the psql_docke
 
 ## Architecture
 
-![Linux SQL Project Architecture Diagram](/assets/architecture_diagram.drawio.png)
+![Linux SQL Project Architecture Diagram](../assets/architecture_diagram.drawio.png)
 
 
 
