@@ -43,8 +43,8 @@ bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 # Example 
 bash scripts/host_usage.sh localhost 5432 host_agent postgres password
 ```
-5. **Set up the crontab to automate data collection:**
-   - Configure the crontab to execute `host_usage.sh` at regular intervals, ensuring that data is collected and stored in the database every minute.
+**Set up the crontab to automate data collection:**
+- Configure the crontab to execute `host_usage.sh` at regular intervals, ensuring that data is collected and stored in the database every minute.
 ```
 # edit crontab jobs
 bash> crontab -e
@@ -57,6 +57,7 @@ bash> crontab -e
 crontab -l
 ```
 # validate your result from the psql instance
+** validate your result from the psql instance
 ```
 psql -h localhost -U postgres -W
 \l to list the dbs
