@@ -137,55 +137,37 @@ The queries.sql script contains multiple queries which can be used to inform res
 
 **The project contains two main tables in the host_agent database:**
 
-host_info Table:
-id (Serial): An auto-incrementing unique identifier for each host entry.
-hostname (VARCHAR): The hostname of the host, which is a string.
-cpu_number (INT2): The number of CPUs on the host.
-cpu_architecture (VARCHAR): The CPU architecture, which is a string.
-cpu_model (VARCHAR): The CPU model, which is a string.
-cpu_mhz (FLOAT8): The CPU clock speed in megahertz.
-l2_cache (INT4): The L2 cache size in bytes.
-timestamp (TIMESTAMP): The timestamp of when the data was collected. It can be null.
-total_mem (INT4): The total memory available on the host in bytes. It can be null.
-
-Constraints:
-Primary Key: id is the primary key, ensuring each record has a unique identifier.
-Unique Constraint: hostname is unique, ensuring that each host entry has a unique hostname.
-
-| Column Name       | Data Type  | Constraints       |
-|-------------------|------------|-------------------|
-| id                | SERIAL     | PRIMARY KEY      |
-| hostname          | VARCHAR    | NOT NULL, UNIQUE |
-| cpu_number        | INT2       | NOT NULL          |
-| cpu_architecture  | VARCHAR    | NOT NULL          |
-| cpu_model         | VARCHAR    | NOT NULL          |
-| cpu_mhz           | FLOAT8     | NOT NULL          |
-| l2_cache          | INT4       | NOT NULL          |
-| timestamp         | TIMESTAMP  |                   |
-| total_mem         | INT4       |                   |
+**host_info Table:**
+The host_info table contains hardware specifications for each host. The following is the host_info table schema:
 
 
-host_usage Table:
-timestamp (TIMESTAMP): The timestamp when the host usage data was recorded.
-host_id (Serial): A foreign key referencing the id column in the host_info table, linking host usage data to a specific host.
-memory_free (INT4): The amount of free memory in bytes.
-cpu_idle (INT2): The percentage of CPU idle time.
-cpu_kernel (INT2): The percentage of CPU kernel time.
-disk_io (INT4): The amount of disk input/output operations.
-disk_available (INT4): The amount of available disk space in bytes.
+| Column Name       | Data Type  | Constraints       | Description                                      |
+|-------------------|------------|-------------------|--------------------------------------------------|
+| id                | SERIAL     | PRIMARY KEY      | Unique auto-incremented identifier for each host.|
+| hostname          | VARCHAR    | NOT NULL, UNIQUE | Unique string representing the hostname of the host.|
+| cpu_number        | INT2       | NOT NULL          | Number of CPUs on the host.                      |
+| cpu_architecture  | VARCHAR    | NOT NULL          | String describing the CPU architecture.         |
+| cpu_model         | VARCHAR    | NOT NULL          | String specifying the CPU model.                 |
+| cpu_mhz           | FLOAT8     | NOT NULL          | CPU clock speed in megahertz.                    |
+| l2_cache          | INT4       | NOT NULL          | L2 cache size in bytes.                          |
+| timestamp         | TIMESTAMP  |                   | Timestamp indicating when the data was collected (nullable).|
+| total_mem         | INT4       |                   | Total memory available on the host in bytes (nullable).|
 
-Constraint:
-Foreign Key: host_id is a foreign key referencing the id column in the host_info table, ensuring that the host_usage data is associated with a specific host from the host_info table.
 
-| Column Name     | Data Type | Constraints                    |
-|-----------------|-----------|--------------------------------|
-| timestamp       | TIMESTAMP | NOT NULL                       |
-| host_id         | SERIAL    | NOT NULL                       |
-| memory_free     | INT4      | NOT NULL                       |
-| cpu_idle        | INT2      | NOT NULL                       |
-| cpu_kernel      | INT2      | NOT NULL                       |
-| disk_io         | INT4      | NOT NULL                       |
-| disk_available  | INT4      | NOT NULL                       |
+**host_usage Table:**
+The host_usage table records contains server usage information for each host. The following is the host_usage table schema:
+
+
+| Column Name     | Data Type | Constraints                    | Description                                      |
+|-----------------|-----------|--------------------------------|--------------------------------------------------|
+| timestamp       | TIMESTAMP | NOT NULL                       | Timestamp indicating when host usage data was recorded.|
+| host_id         | SERIAL    | NOT NULL                       | Foreign key referencing `id` in `host_info` for host identification.|
+| memory_free     | INT4      | NOT NULL                       | Amount of free memory in bytes.                   |
+| cpu_idle        | INT2      | NOT NULL                       | Percentage of CPU idle time.                     |
+| cpu_kernel      | INT2      | NOT NULL                       | Percentage of CPU kernel time.                   |
+| disk_io         | INT4      | NOT NULL                       | Number of disk input/output operations.          |
+| disk_available  | INT4      | NOT NULL                       | Amount of available disk space in bytes.        |
+
 
 
 # Test
