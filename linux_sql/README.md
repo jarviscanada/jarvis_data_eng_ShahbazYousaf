@@ -12,7 +12,7 @@ To create the PostgreSQL docker container
 ./scripts/psql_docker.sh create postgres password
 ```
 **Create tables using `ddl.sql`:**
-- The ddl.sql script defines the structure of the host_agent database, including the two tables used to store hardware specifications and resource usage data. against the psql instance
+The ddl.sql script defines the structure of the host_agent database, including the two tables used to store hardware specifications and resource usage data. against the psql instance
 ```
 -- connect to the psql instance
 psql -h localhost -U postgres -W
@@ -28,7 +28,7 @@ psql -h localhost -U postgres -d host_agent -f sql/ddl.sql
 ```
 
 **Insert hardware specifications data into the database using `host_info.sh`:**
-- Run this script on each server to collect hardware specifications. This information is inserted into the database and only needs to be executed once during installation.
+Run this script on each server to collect hardware specifications. This information is inserted into the database and only needs to be executed once during installation.
 ```
 # Script usage 
 bash scripts/host_info.sh psql_host psql_port db_name psql_user psql_password 
@@ -36,7 +36,7 @@ bash scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
 bash scripts/host_info.sh localhost 5432 host_agent postgres password
 ```
 **Collect and insert hardware usage data into the database using `host_usage.sh`:**
-- This script continuously collects real-time server usage data, including CPU and Memory, and inserts it into the database. The script is scheduled to run every minute using crontab.
+This script continuously collects real-time server usage data, including CPU and Memory, and inserts it into the database. The script is scheduled to run every minute using crontab.
 ```
 # Script usage 
 bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password 
@@ -44,7 +44,7 @@ bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 bash scripts/host_usage.sh localhost 5432 host_agent postgres password
 ```
 **Set up the crontab to automate data collection:**
-- Configure the crontab to execute `host_usage.sh` at regular intervals, ensuring that data is collected and stored in the database every minute.
+Configure the crontab to execute `host_usage.sh` at regular intervals, ensuring that data is collected and stored in the database every minute.
 ```
 # edit crontab jobs
 bash> crontab -e
