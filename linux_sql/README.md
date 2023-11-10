@@ -75,7 +75,7 @@ I began by establishing a Dockerized PostgreSQL environment using the psql_docke
 Draw a cluster diagram with three Linux hosts, a DB, and agents (use draw.io website). Image must be saved to the `assets` directory.
 
 
-![Linux SQL Project Architecture Diagram](assets/"Linux SQL Project Architecture Diagram.drawio.png")
+![Linux SQL Project Architecture Diagram](assets/Linux SQL Project Architecture Diagram.drawio.png)
 
 More text explaining the architecture or providing additional context.
 
