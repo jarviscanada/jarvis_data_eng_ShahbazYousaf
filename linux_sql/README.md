@@ -3,7 +3,7 @@ Jarvis has a Linux Cluster Administration (LCA) team that manages a Linux CentOS
 
 # Quick Start
 
-1. **Start a PostgreSQL instance using `psql_docker.sh`:**
+**Start a PostgreSQL instance using `psql_docker.sh`:**
 This script sets up a Docker container running PostgreSQL, which allows you to quickly create and manage the database.
 ```
 To create the PostgreSQL docker container
