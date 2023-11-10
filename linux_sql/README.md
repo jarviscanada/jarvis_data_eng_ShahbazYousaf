@@ -81,7 +81,7 @@ I began by establishing a Dockerized PostgreSQL environment using the psql_docke
 
 
 ## Scripts
-Key scripts used in the project:
+**Key scripts used in the project:**
 
 **`psql_docker.sh`:** 
 
