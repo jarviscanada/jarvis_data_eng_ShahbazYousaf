@@ -81,9 +81,10 @@ I began by establishing a Dockerized PostgreSQL environment using the psql_docke
 
 
 ## Scripts
-Here are the key scripts used in the project:
+Key scripts used in the project:
 
-**`psql_docker.sh`:** This script simplifies the setup process by starting a Docker container running a PostgreSQL instance, making it easy to work with the database.
+**`psql_docker.sh`:
+** This script simplifies the setup process by starting a Docker container running a PostgreSQL instance, making it easy to work with the database.
 ```
 # script usage ./scripts/psql_docker.sh start|stop|create [db_username][db_password]
 ```
