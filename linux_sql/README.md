@@ -91,6 +91,7 @@ This script simplifies the setup process by starting a Docker container running 
 ```
 
 **`host_info.sh`:** 
+
 Collects hardware specification data and inserts it into the database. This script is executed only once during the initial installation of the monitoring system.
 
 ```
@@ -111,7 +112,9 @@ bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 bash scripts/host_usage.sh localhost 5432 host_agent postgres password
 ```
 
-**`crontab`:** The crontab configuration file specifies when and how often `host_usage.sh` should be executed to ensure data is consistently collected.
+**`crontab`:** 
+
+The crontab configuration file specifies when and how often `host_usage.sh` should be executed to ensure data is consistently collected.
 
 ```
 crontab -l
@@ -125,12 +128,14 @@ psql -h localhost -U postgres -W
 \q to quit psql instance
 ```
 
-**`queries.sql`:** This file contains SQL queries to address various business questions by utilizing the collected data. It serves as a starting point for generating reports and insights from the data.
+**`queries.sql`:** 
+
+This file contains SQL queries to address various business questions by utilizing the collected data. It serves as a starting point for generating reports and insights from the data.
 The queries.sql script contains multiple queries which can be used to inform resource allocation
 
 ## Database Modeling
 
-The project contains two main tables in the host_agent database:
+**The project contains two main tables in the host_agent database:**
 
 host_info Table:
 id (Serial): An auto-incrementing unique identifier for each host entry.
