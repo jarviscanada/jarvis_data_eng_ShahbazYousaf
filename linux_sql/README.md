@@ -143,15 +143,15 @@ The host_info table contains hardware specifications for each host. The followin
 
 | Column Name       | Data Type  | Constraints       | Description                                      |
 |-------------------|------------|-------------------|--------------------------------------------------|
-| id                | SERIAL     | PRIMARY KEY      | Unique auto-incremented identifier for each host.|
-| hostname          | VARCHAR    | NOT NULL, UNIQUE | Unique string representing the hostname of the host.|
-| cpu_number        | INT2       | NOT NULL          | Number of CPUs on the host.                      |
-| cpu_architecture  | VARCHAR    | NOT NULL          | String describing the CPU architecture.         |
-| cpu_model         | VARCHAR    | NOT NULL          | String specifying the CPU model.                 |
-| cpu_mhz           | FLOAT8     | NOT NULL          | CPU clock speed in megahertz.                    |
-| l2_cache          | INT4       | NOT NULL          | L2 cache size in bytes.                          |
-| timestamp         | TIMESTAMP  |                   | Timestamp indicating when the data was collected (nullable).|
-| total_mem         | INT4       |                   | Total memory available on the host in bytes (nullable).|
+| id                | SERIAL     | PRIMARY KEY      | Unique auto-incremented identifier for each host|
+| hostname          | VARCHAR    | NOT NULL, UNIQUE | Unique string representing the hostname of the host|
+| cpu_number        | INT2       | NOT NULL          | Number of CPUs on the host                      |
+| cpu_architecture  | VARCHAR    | NOT NULL          | String describing the CPU architecture         |
+| cpu_model         | VARCHAR    | NOT NULL          | String specifying the CPU model                 |
+| cpu_mhz           | FLOAT8     | NOT NULL          | CPU clock speed in megahertz                    |
+| l2_cache          | INT4       | NOT NULL          | L2 cache size in bytes                          |
+| timestamp         | TIMESTAMP  |                   | Timestamp indicating when the data was collected (nullable)|
+| total_mem         | INT4       |                   | Total memory available on the host in bytes (nullable)|
 
 
 **host_usage Table:**
@@ -160,13 +160,13 @@ The host_usage table records contains server usage information for each host. Th
 
 | Column Name     | Data Type | Constraints                    | Description                                      |
 |-----------------|-----------|--------------------------------|--------------------------------------------------|
-| timestamp       | TIMESTAMP | NOT NULL                       | Timestamp indicating when host usage data was recorded.|
-| host_id         | SERIAL    | NOT NULL                       | Foreign key referencing `id` in `host_info` for host identification.|
-| memory_free     | INT4      | NOT NULL                       | Amount of free memory in bytes.                   |
-| cpu_idle        | INT2      | NOT NULL                       | Percentage of CPU idle time.                     |
-| cpu_kernel      | INT2      | NOT NULL                       | Percentage of CPU kernel time.                   |
-| disk_io         | INT4      | NOT NULL                       | Number of disk input/output operations.          |
-| disk_available  | INT4      | NOT NULL                       | Amount of available disk space in bytes.        |
+| timestamp       | TIMESTAMP | NOT NULL                       | Timestamp indicating when host usage data was recorded|
+| host_id         | SERIAL    | NOT NULL                       | Foreign key referencing `id` in `host_info` for host identification|
+| memory_free     | INT4      | NOT NULL                       | Amount of free memory in bytes                   |
+| cpu_idle        | INT2      | NOT NULL                       | Percentage of CPU idle time                     |
+| cpu_kernel      | INT2      | NOT NULL                       | Percentage of CPU kernel time                   |
+| disk_io         | INT4      | NOT NULL                       | Number of disk input/output operations          |
+| disk_available  | INT4      | NOT NULL                       | Amount of available disk space in bytes        |
 
 
 
@@ -177,10 +177,7 @@ The project was tested manually to verify the functionality of the Bash scripts.
 In deploying the monitoring app, I set up Git repositories for source code management, configured crontab for automated data collection, and provisioned the database using Docker. 
 
 # Improvements
-Write at least three things you want to improve 
-e.g. 
-- Handling hardware updates for accurate data collection.
-- Implementing advanced monitoring and alerting features.
-- Enhancing security measures for data protection.
-- Devise a way to keep hardware specifications up to date
+- Handling hardware updates for accurate data collection
+- Implementing advanced monitoring and alerting features when resources are underutilized or if resource usage reaches critial levels
+- Enhancing security measures for data protection
 
