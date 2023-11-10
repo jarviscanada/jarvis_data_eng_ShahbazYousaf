@@ -57,7 +57,7 @@ bash> crontab -e
 crontab -l
 ```
 
-** validate your result from the psql instance**
+**Validate your result from the psql instance**
 ```
 psql -h localhost -U postgres -W
 \l to list the dbs
