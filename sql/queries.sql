@@ -1,6 +1,6 @@
 # Introduction
 
-# SQL Quries
+# SQL Queries
 
 ###### Table Setup (DDL)
 
@@ -135,7 +135,18 @@ inner join cd.members recs
 on recs.memid = mems.recommendedby order by surname, firstname;
 ```
 
-###### Questions 16: Produce a count of the number of recommendations each member has made. Order by member ID.
+###### Questions 16: How can you output a list of all members, including the individual who recommended them (if any), without using any joins? Ensure that there are no duplicates in the list, and that each firstname + surname pairing is formatted as a column and ordered.
+
+```sql
+select distinct mems.firstname || ' ' || mems.surname as member,
+(select recs.firstname || ' ' || recs.surname as recommender
+from cd.members recs
+where recs.memid = mems.recommendedby )
+from cd.members mems
+order by member;
+```
+
+###### Questions 17: Produce a count of the number of recommendations each member has made. Order by member ID.
 
 ```sql
 select recommendedby, count(*) 
@@ -145,7 +156,7 @@ group by recommendedby
 order by recommendedby;
 ```
 
-###### Questions 17: Produce a list of the total number of slots booked per facility. For now, just produce an output table consisting of facility id and slots, sorted by facility id.
+###### Questions 18: Produce a list of the total number of slots booked per facility. For now, just produce an output table consisting of facility id and slots, sorted by facility id.
 
 
 ```sql
@@ -156,7 +167,7 @@ order by facid;
 
 ```
 
-###### Questions 18: Produce a list of the total number of slots booked per facility in the month of September 2012. Produce an output table consisting of facility id and slots, sorted by the number of slots.
+###### Questions 19: Produce a list of the total number of slots booked per facility in the month of September 2012. Produce an output table consisting of facility id and slots, sorted by the number of slots.
 
 ```sql
 select facid, sum(slots) as "Total Slots" 
@@ -166,7 +177,7 @@ group by facid
 order by sum(slots);
 ```
 
-###### Questions 18: Produce a list of the total number of slots booked per facility per month in the year of 2012. Produce an output table consisting of facility id and slots, sorted by the id and month.
+###### Questions 20: Produce a list of the total number of slots booked per facility per month in the year of 2012. Produce an output table consisting of facility id and slots, sorted by the id and month.
 
 ```sql
 select facid, extract(month from starttime) as month, sum(slots) as "Total Slots" 
@@ -176,7 +187,7 @@ group by facid, month
 order by facid, month;
 ```
 
-###### Questions 20: Find the total number of members (including guests) who have made at least one booking.
+###### Questions 21: Find the total number of members (including guests) who have made at least one booking.
 
 ```sql
 select count(distinct memid) from cd.bookings
@@ -184,7 +195,7 @@ select count(*) from
 	(select distinct memid from cd.bookings) as mems
 ```
 
-###### Questions 21: Produce a list of each member name, id, and their first booking after September 1st 2012. Order by member ID.
+###### Questions 22: Produce a list of each member name, id, and their first booking after September 1st 2012. Order by member ID.
 
 ```sql
 select mems.surname, mems.firstname, mems.memid, min(bks.starttime) as starttime 
@@ -195,7 +206,7 @@ group by mems.surname, mems.firstname, mems.memid
 order by mems.memid;
 ```
 
-###### Questions 22: Produce a list of member names, with each row containing the total member count. Order by join date, and include guest members.
+###### Questions 23: Produce a list of member names, with each row containing the total member count. Order by join date, and include guest members.
 
 ```sql
 select (select count(*) from cd.members) as count, firstname, surname 
@@ -204,7 +215,7 @@ order by joindate
 ```
 
 
-###### Questions 23: Produce a monotonically increasing numbered list of members (including guests), ordered by their date of joining. Remember that member IDs are not guaranteed to be sequential.
+###### Questions 24: Produce a monotonically increasing numbered list of members (including guests), ordered by their date of joining. Remember that member IDs are not guaranteed to be sequential.
 
 ```sql
 select row_number() over(order by joindate), firstname, surname 
@@ -213,7 +224,7 @@ order by joindate
 ```
 
 
-###### Questions 24: Output the facility id that has the highest number of slots booked. Ensure that in the event of a tie, all tieing results get output.
+###### Questions 25: Output the facility id that has the highest number of slots booked. Ensure that in the event of a tie, all tieing results get output.
 
 ```sql
 select facid, sum(slots) as totalslots 
@@ -223,21 +234,21 @@ having sum(slots) = (select max(sum2.totalslots) from (select sum(slots) as tota
 ```
 
 
-###### Questions 25: Output the names of all members, formatted as 'Surname, Firstname'
+###### Questions 26: Output the names of all members, formatted as 'Surname, Firstname'
 
 ```sql
 select surname || ', ' || firstname as name from cd.members
 ```
 
 
-###### Questions 26: You've noticed that the club's member table has telephone numbers with very inconsistent formatting. You'd like to find all the telephone numbers that contain parentheses, returning the member ID and telephone number sorted by member ID.
+###### Questions 27: You've noticed that the club's member table has telephone numbers with very inconsistent formatting. You'd like to find all the telephone numbers that contain parentheses, returning the member ID and telephone number sorted by member ID.
 
 ```sql
 select memid, telephone from cd.members where telephone similar to '%[()]%';
 ```
 
 
-###### Questions 27: You'd like to produce a count of how many members you have whose surname starts with each letter of the alphabet. Sort by the letter, and don't worry about printing out a letter if the count is 0.
+###### Questions 28: You'd like to produce a count of how many members you have whose surname starts with each letter of the alphabet. Sort by the letter, and don't worry about printing out a letter if the count is 0.
 
 ```sql
 select substr (mems.surname,1,1) as letter, count(*) as count 
