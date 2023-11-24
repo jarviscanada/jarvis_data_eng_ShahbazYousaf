@@ -192,7 +192,7 @@ order by facid, month;
 ```sql
 select count(distinct memid) from cd.bookings
 select count(*) from
-	(select distinct memid from cd.bookings) as mems
+	(select distinct memid from cd.bookings) as mems;
 ```
 
 ###### Questions 22: Produce a list of each member name, id, and their first booking after September 1st 2012. Order by member ID.
@@ -211,7 +211,7 @@ order by mems.memid;
 ```sql
 select (select count(*) from cd.members) as count, firstname, surname 
 from cd.members 
-order by joindate
+order by joindate;
 ```
 
 
@@ -220,7 +220,7 @@ order by joindate
 ```sql
 select row_number() over(order by joindate), firstname, surname 
 from cd.members 
-order by joindate
+order by joindate;
 ```
 
 
@@ -237,7 +237,7 @@ having sum(slots) = (select max(sum2.totalslots) from (select sum(slots) as tota
 ###### Questions 26: Output the names of all members, formatted as 'Surname, Firstname'
 
 ```sql
-select surname || ', ' || firstname as name from cd.members
+select surname || ', ' || firstname as name from cd.members;
 ```
 
 
@@ -253,7 +253,7 @@ select memid, telephone from cd.members where telephone similar to '%[()]%';
 ```sql
 select substr (mems.surname,1,1) as letter, count(*) as count 
 from cd.members mems 
-group by letter order by letter
+group by letter order by letter;
 ```
 
 EOF
