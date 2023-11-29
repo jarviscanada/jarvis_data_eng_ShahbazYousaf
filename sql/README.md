@@ -1,4 +1,5 @@
 # Introduction
+This project focuses on learning SQL, data modeling, and SQL optimization with the goal of becoming proficient at working with relational databases and creating optimized SQL queries. Throughout the project, we delve deep into these topics, practicing data modeling, and refining our query creation and optimization skills.
 
 # SQL Queries
 
