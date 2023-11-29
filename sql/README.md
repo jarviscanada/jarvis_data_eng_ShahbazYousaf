@@ -42,7 +42,8 @@ CREATE TABLE cd.bookings
        CONSTRAINT fk_bookings_memid FOREIGN KEY (memid) REFERENCES cd.members(memid)
     );
 
-##### Practice SQL Queries
+###### Practice SQL Queries
+
 ###### Question 1: The club is adding a new facility - a spa. We need to add it into the facilities table. Use the following values: facid: 9, Name: 'Spa', membercost: 20, guestcost: 30, initialoutlay: 100000, monthlymaintenance: 800. 
 
 ```sql
