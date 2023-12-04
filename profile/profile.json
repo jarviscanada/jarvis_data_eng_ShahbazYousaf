@@ -37,8 +37,8 @@
   "others": [
     {
       "bullets": [
-        "IBM Data Science Professional Certificate (2022)",
-        "IBM Applied DevOps Engineering Professional Certificate (2023)"
+        "IBM Applied DevOps Engineering Professional Certificate (2023)",
+        "IBM Data Science Professional Certificate (2022)"
       ],
       "title": "Certificates"
     },
@@ -54,7 +54,7 @@
   ],
   "professional_experience": [
     {
-      "company": "Jarvis",
+      "company": "Jarvis Consulting Group",
       "description": "Developed data engineering and DevOps projects at Jarvis for internal users using Java, Python, Docker, Git, PSQL, and Cloud (GCP). Worked in an agile environment with daily scrum meetings and bi-weekly sprint reviews/retrospectives to enhance development processes.",
       "duration": "2023-present",
       "title": "Software Developer"

@@ -101,7 +101,7 @@ highlighted_projects:
 professional_experience:
   #Write your Jarvis role as a professional experience rather than training.
   - title: "Software Developer"
-    company: "Jarvis"
+    company: "Jarvis Consulting Group"
     duration: "2023-present"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
     description: "Developed data engineering and DevOps projects at Jarvis for internal users using Java, Python, Docker, Git, PSQL, and Cloud (GCP). Worked in an agile environment with daily scrum meetings and bi-weekly sprint reviews/retrospectives to enhance development processes."
@@ -125,8 +125,8 @@ others:
   - title: "Certificates"
     #list of items
     bullets:
-      - "IBM Data Science Professional Certificate (2022)"
       - "IBM Applied DevOps Engineering Professional Certificate (2023)"
+      - "IBM Data Science Professional Certificate (2022)"
   - title: "Activities/Hobbies"
     bullets:
       - "Basketball: Play organized basketball as part of a local league"
