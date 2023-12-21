@@ -13,6 +13,7 @@ cat [outputFile]
 
 
 #Implemenation
+
 ## Pseudocode
 The Java Grep application uses a process method to effectively orchestrate the entire procedure, mirroring the functionality of the Linux grep command in Java. The pseudocode is as follows:
 
