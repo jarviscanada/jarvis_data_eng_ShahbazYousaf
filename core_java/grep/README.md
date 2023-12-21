@@ -1,7 +1,7 @@
 # Introduction
 Created a Java grep app that mimics Linux grep command which allows users to search matching strings from files. This application recursively searches a root directory for a provided regex pattern, identifies matching lines, and saves them to an output file specified by the user. With a designated input root directory, regex pattern, and output file, the app systematically traverses every file within the root, outputting lines that match the specified pattern into the provided file. The application is packaged with Docker, allowing users to pull the image from DockerHub for implementation. Technologies used for this application include Java, Maven, Intellij, Lambda & Stream API, and Docker.
 # Quick Start
-# Build and compile the maven project and package the program into a JAR file
+## Build and compile the maven project and package the program into a JAR file
 mvn clean compile project
 
 #Run the JAR file with the three arguments [regex], [rootDirectory], [outputFile] to perform the grep search
