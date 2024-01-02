@@ -40,7 +40,7 @@ writeToFile(matchedLines)
 When dealing with large files in the root directory, both implementations of the Java Grep application may encounter performance issues, potentially leading to challenges due to memory limitations. However, the JavaGrepLambdaImp class addresses this by utilizing Java Stream and Lambda functionalities,  ensuring a more efficient approach to line processing without the risk of memory-related problems.
 
 # Test
-The project was tested manually to verify the functionality of both implementations of the Java Grep application. Testing involved the use of print line statements and the Logger instance.
+The project was tested manually to verify the functionality of both implementations of the Java Grep application. Testing involved the use of the Logger instance to handle errors and make sure proper functionality of the system.
 
 # Deployment
 The Java Grep application was dockerized as a Docker Image and uploaded to DockerHub for convenient access and utilization. To obtain the Docker image and utilize the application, follow the steps below:
