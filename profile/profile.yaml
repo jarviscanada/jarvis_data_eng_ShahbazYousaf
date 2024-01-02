@@ -50,15 +50,9 @@ jarvis_projects:
     # Please read the project description guideline carefully. Make sure you follow the simplified SDLC pattern. (t.ly/NlXQ)
     # Please include the following keywords: CentOS, Bash/Shell, docker, RDBMS/SQL/Postgresql, crontab, data analytics
     description: Built an MVP for Jarvis' Linux Cluster Administration (LCA) team to manage a Linux CentOS 7 cluster of 10+ servers. The project records hardware specs, monitors real-time Linux server usage data and stores data in a PostgreSQL RDBMS for analytics and future resource planning. Developed bash scripts to collect hardware and server data collection, used Docker for PostgreSQL provisioning, and leveraged Git and GitHub for version control. Configured crontab to run host_usage.sh script every minute, streamlining data collection and regular server usage data collection and reporting.
-#  - name: "Core Java Apps"
-#    git_url: "/core_java"
-#    description:
-#      #Keywords: Java 8, REST API, OAuth, Design patterns (e.g. DAO, MVC), JUnit, Mockito, Docker
-#      - "Twitter CRUD App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-#      # Keywords: Java 8, JDBC, RDBMS, SQL, CRUD,DAO
-#      - "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-#      # Keywords: Java 8, Lambda, Stream API, IntelliJ
-     - Grep App: Developed a Java grep app mimicking Linux bash grep command, allowing users to search for matching strings in files. The application recursively searches a root directory based on a provided regex pattern, identifies matching lines, and saves them to a user-specified output file. Utilizing Docker, the app can be easily implemented by pulling the image from DockerHub. Technologies involved: Java, Maven, Intellij, Lambda & Stream API, and Docker.
+  - name: "Java Grep Application"
+    git_url: "https://github.com/jarviscanada/jarvis_data_eng_ShahbazYousaf/tree/master/core_java/grep"
+    description: Developed a Java grep app mimicking Linux bash grep command, allowing users to search for matching strings in files. The application recursively searches a root directory based on a provided regex pattern, identifies matching lines, and saves them to a user-specified output file. Utilizing Docker, the app can be easily implemented by pulling the image from DockerHub. Technologies used in the project include Java, Maven, Intellij, Lambda & Stream API, and Docker.
 #  # Please remove not started projects below so that they don't show up in your profile for now.
 #  # You will need to add a project back to your profile upon completion
 #  - name: "Spring RESTful Microservices App"
