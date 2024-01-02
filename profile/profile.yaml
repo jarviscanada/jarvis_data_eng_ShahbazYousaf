@@ -58,7 +58,7 @@ jarvis_projects:
 #      # Keywords: Java 8, JDBC, RDBMS, SQL, CRUD,DAO
 #      - "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
 #      # Keywords: Java 8, Lambda, Stream API, IntelliJ
-#      - "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+     - Grep App: Developed a Java grep app mimicking Linux bash grep command, allowing users to search for matching strings in files. The application recursively searches a root directory based on a provided regex pattern, identifies matching lines, and saves them to a user-specified output file. Utilizing Docker, the app can be easily implemented by pulling the image from DockerHub. Technologies involved: Java, Maven, Intellij, Lambda & Stream API, and Docker.
 #  # Please remove not started projects below so that they don't show up in your profile for now.
 #  # You will need to add a project back to your profile upon completion
 #  - name: "Spring RESTful Microservices App"
