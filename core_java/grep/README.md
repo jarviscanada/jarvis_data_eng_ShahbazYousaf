@@ -16,14 +16,14 @@ cat [outputFile]
 
 ## Pseudocode
 The Java Grep application uses a process method to effectively orchestrate the entire procedure, mirroring the functionality of the Linux grep command in Java. The pseudocode is as follows:
-
+```
 matchedLines[]
 for file in listFilesRecursively(rootDir)
     for line in readFile(file)
         if containsPattern(line)
             matchedLines.add(line)
 writeToFile(matchedLines)
-
+```
 
 ## Performance Issue
 When dealing with large files in the root directory, both implementations of the Java Grep application may encounter performance issues, potentially leading to challenges due to memory limitations. However, the JavaGrepLambdaImp class addresses this by utilizing Java Stream and Lambda functionalities,  ensuring a more efficient approach to line processing without the risk of memory-related problems.
