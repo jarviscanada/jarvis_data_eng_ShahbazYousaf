@@ -8,7 +8,7 @@ mvn clean compile project
 #Run the JAR file with the three arguments [regex], [rootDirectory], [outputFile] to perform the grep search
 java -cp target/grep-1.0-SNAPSHOT.jar ca.jrvs.apps.grep.JavaGrepImp [regex] [rootDirectory] [outputFile]
 
-#View the output file containing the matched lines
+# View the output file containing the matched lines
 cat [outputFile]
 
 
