@@ -31,6 +31,11 @@
       "description": "Built an MVP for Jarvis' Linux Cluster Administration (LCA) team to manage a Linux CentOS 7 cluster of 10+ servers. The project records hardware specs, monitors real-time Linux server usage data and stores data in a PostgreSQL RDBMS for analytics and future resource planning. Developed bash scripts to collect hardware and server data collection, used Docker for PostgreSQL provisioning, and leveraged Git and GitHub for version control. Configured crontab to run host_usage.sh script every minute, streamlining data collection and regular server usage data collection and reporting.",
       "git_url": "https://github.com/jarviscanada/jarvis_data_eng_ShahbazYousaf/tree/master/linux_sql",
       "name": "Linux Cluster Resource Monitoring App"
+    },
+    {
+      "description": "Developed a Java grep app mimicking Linux bash grep command, allowing users to search for matching strings in files. The application recursively searches a root directory based on a provided regex pattern, identifies matching lines, and saves them to a user-specified output file. Utilizing Docker, the app can be easily implemented by pulling the image from DockerHub. Technologies used in the project include Java, Maven, Intellij, Lambda \u0026 Stream API, and Docker.",
+      "git_url": "https://github.com/jarviscanada/jarvis_data_eng_ShahbazYousaf/tree/master/core_java/grep",
+      "name": "Java Grep Application"
     }
   ],
   "name": "Shahbaz Yousaf",
