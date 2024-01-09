@@ -13,14 +13,17 @@ This script sets up a Docker container running PostgreSQL
 ./scripts/psql_docker.sh create postgres password
 ```
 **Create tables using `ddl.sql`:**
-The ddl.sql script defines the structure of the host_agent database, including the two tables used to store hardware specifications and resource usage data. against the psql instance
+The ddl.sql script defines the structure of the host_agent database, including the two tables used to store hardware specifications and resource usage data
 ```
 -- connect to the psql instance
 psql -h localhost -U postgres -W
+
 -- create the host_agent database 
-postgres=# CREATE DATABASE host_agent; 
+postgres=# CREATE DATABASE host_agent;
+
 -- connect to the new database
 postgres=# \c host_agent;
+
 -- disconnect to the new host_agent database
 postgres=# \q
 
