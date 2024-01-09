@@ -78,38 +78,34 @@ I began by establishing a Dockerized PostgreSQL environment using the psql_docke
 **Key scripts used in the project:**
 
 **`psql_docker.sh`:** 
-
 This script simplifies the setup process by starting a Docker container running a PostgreSQL instance, making it easy to work with the database.
 ```
-# script usage ./scripts/psql_docker.sh start|stop|create [db_username][db_password]
+# script usage
+./scripts/psql_docker.sh start|stop|create [db_username][db_password]
 ```
 
 **`host_info.sh`:** 
-
 Collects hardware specification data and inserts it into the database. This script is executed only once during the initial installation of the monitoring system.
-
 ```
 # Script usage 
-bash scripts/host_info.sh psql_host psql_port db_name psql_user psql_password 
+bash scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
+
 # Example 
 bash scripts/host_info.sh localhost 5432 host_agent postgres password
 ```
 
 **`host_usage.sh`:** 
-
 Collects real-time server resource usage data, including CPU and Memory, and inserts it into the database. This script is scheduled to run every minute using crontab for continuous data collection.
-
 ```
 # Script usage 
-bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password 
+bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
+
 # Example 
 bash scripts/host_usage.sh localhost 5432 host_agent postgres password
 ```
 
 **`crontab`:** 
-
 The crontab configuration file specifies when and how often `host_usage.sh` should be executed to ensure data is consistently collected.
-
 ```
 crontab -l
 
@@ -123,9 +119,8 @@ psql -h localhost -U postgres -W
 ```
 
 **`queries.sql`:** 
+This file contains SQL queries to analyze collected data, serving as a starting point for generating reports and insights and can be used to inform  resource allocation.
 
-This file contains SQL queries to address various business questions by utilizing the collected data. It serves as a starting point for generating reports and insights from the data.
-The queries.sql script contains multiple queries which can be used to inform resource allocation
 
 ## Database Modeling
 
