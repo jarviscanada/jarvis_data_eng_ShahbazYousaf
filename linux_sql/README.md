@@ -4,10 +4,11 @@ The project involved creating a monitoring app that records hardware specificati
 # Quick Start
 
 **Start a PostgreSQL instance using `psql_docker.sh`:**
-This script sets up a Docker container running PostgreSQL, which allows you to quickly create and manage the database.
+This script sets up a Docker container running PostgreSQL
 ```
-To create the PostgreSQL docker container
+# To create the PostgreSQL docker container
 ./scripts/psql_docker.sh create db_username db_password
+
 # Example 
 ./scripts/psql_docker.sh create postgres password
 ```
