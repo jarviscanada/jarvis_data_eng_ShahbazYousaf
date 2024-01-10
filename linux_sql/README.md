@@ -12,6 +12,7 @@ This script sets up a Docker container running PostgreSQL
 # Example 
 ./scripts/psql_docker.sh create postgres password
 ```
+
 **Create tables using `ddl.sql`:**
 ```
 -- connect to the psql instance
