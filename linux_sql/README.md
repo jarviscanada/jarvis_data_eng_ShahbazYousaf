@@ -75,7 +75,7 @@ I began by establishing a Dockerized PostgreSQL environment using the psql_docke
 
 
 ## Scripts
-### psql_docker.sh
+### `psql_docker.sh`
 This script simplifies the setup process by starting a Docker container running a PostgreSQL instance, making it easy to work with the database.
 ```
 # script usage
@@ -92,7 +92,7 @@ bash scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
 bash scripts/host_info.sh localhost 5432 host_agent postgres password
 ```
 
-### host_usage.sh
+### `host_usage.sh`
 Collects real-time server resource usage data, including CPU and Memory, and inserts it into the database. This script is scheduled to run every minute using crontab for continuous data collection.
 ```
 # Script usage 
@@ -102,7 +102,7 @@ bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 bash scripts/host_usage.sh localhost 5432 host_agent postgres password
 ```
 
-### crontab 
+### `crontab`
 The crontab configuration file specifies when and how often `host_usage.sh` should be executed to ensure data is consistently collected.
 ```
 crontab -l
@@ -116,7 +116,7 @@ psql -h localhost -U postgres -W
 \q to quit psql instance
 ```
 
-**`queries.sql`:** 
+### `queries.sql`
 This file contains SQL queries to analyze collected data, serving as a starting point for generating reports and insights and can be used to inform  resource allocation.
 
 
