@@ -1,3 +1,10 @@
+-- Drop the database if it exists
+DROP DATABASE IF EXISTS host_agent;
+
+-- Create the host_agent database
+CREATE DATABASE host_agent;
+
+-- Connect to the host_agent database
 postgres=# \c host_agent;
 
 -- Create a host_info table if it does not already exist
@@ -16,17 +23,6 @@ CREATE TABLE IF NOT EXISTS PUBLIC.host_info
      CONSTRAINT host_info_un UNIQUE (hostname) 
   );
 
--- Insert three sample data rows
-INSERT INTO host_info (id, hostname, cpu_number, cpu_architecture, cpu_model, cpu_mhz, l2_cache, "timestamp", total_mem) VALUES(1, 'jrvs-remote-desktop-centos7-6.us-central1-a.c.spry-framework-236416.internal', 1, 'x86_64', 'Intel(R) Xeon(R) CPU @ 2.30GHz', 2300, 256, '2019-05-29 17:49:53.000', 601324);
-
-INSERT INTO host_info (id, hostname, cpu_number, cpu_architecture, cpu_model, cpu_mhz, l2_cache, "timestamp", total_mem) VALUES(2, 'noe1', 1, 'x86_64', 'Intel(R) Xeon(R) CPU @ 2.30GHz', 2300, 256, '2019-05-29 17:49:53.000', 601324);
-
-INSERT INTO host_info (id, hostname, cpu_number, cpu_architecture, cpu_model, cpu_mhz, l2_cache, "timestamp", total_mem) VALUES(3, 'noe2', 1, 'x86_64', 'Intel(R) Xeon(R) CPU @ 2.30GHz', 2300, 256, '2019-05-29 17:49:53.000', 601324);
-
--- Verify inserted data
-SELECT * FROM host_info;
-
-
 -- Create a host_usage table if it does not already exist
 CREATE TABLE IF NOT EXISTS PUBLIC.host_usage 
   ( 
@@ -40,16 +36,6 @@ CREATE TABLE IF NOT EXISTS PUBLIC.host_usage
      CONSTRAINT host_usage_host_info_fk FOREIGN KEY (host_id) REFERENCES 
      host_info(id) 
   );
-
--- Insert two sample data rows
-INSERT INTO host_usage ("timestamp", host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available) 
-VALUES('2019-05-29 15:00:00.000', 1, 300000, 90, 4, 2, 3);
-
-INSERT INTO host_usage ("timestamp", host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available) 
-VALUES('2019-05-29 15:01:00.000', 1, 200000, 90, 4, 2, 3);
-
--- Verify inserted data
-SELECT * FROM host_usage;
 
 
 -- Execute ddl.sql script on the host_agent database againse the psql instance
