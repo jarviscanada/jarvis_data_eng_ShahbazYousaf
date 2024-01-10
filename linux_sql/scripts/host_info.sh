@@ -6,7 +6,8 @@ psql_password=$5
 
 
 if [ "$#" -ne 5 ]; then
-    echo "Illegal number of parameters"
+    echo "Illegal number of parameters. Please use the following format when running the script:"
+    echo "./host_info.sh [psql_host] [psql_port] [db_name] [psql_user] [psql_password]"
     exit 1
 fi
 
