@@ -123,9 +123,7 @@ This file contains SQL queries to analyze collected data, serving as a starting 
 
 ## Database Modeling
 
-**The project contains two main tables in the host_agent database:**
-
-**host_info Table:**
+### host_info Table
 The host_info table contains hardware specifications for each host. The following is the host_info table schema:
 
 
@@ -138,11 +136,11 @@ The host_info table contains hardware specifications for each host. The followin
 | cpu_model         | VARCHAR    | NOT NULL          | String specifying the CPU model                 |
 | cpu_mhz           | FLOAT8     | NOT NULL          | CPU clock speed in megahertz                    |
 | l2_cache          | INT4       | NOT NULL          | L2 cache size in bytes                          |
-| timestamp         | TIMESTAMP  |                   | Timestamp indicating when the data was collected (nullable)|
-| total_mem         | INT4       |                   | Total memory available on the host in bytes (nullable)|
+| timestamp         | TIMESTAMP  | NULL              | Timestamp indicating when the data was collected (nullable)|
+| total_mem         | INT4       | NULL              | Total memory available on the host in bytes (nullable)|
 
 
-**host_usage Table:**
+### host_usage Table
 The host_usage table records contains server usage information for each host. The following is the host_usage table schema:
 
 
