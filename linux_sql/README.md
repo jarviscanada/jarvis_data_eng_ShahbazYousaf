@@ -106,15 +106,15 @@ bash scripts/host_usage.sh localhost 5432 host_agent postgres password
 ### `crontab`
 The crontab configuration file specifies when and how often `host_usage.sh` should be executed to ensure data is consistently collected.
 ```
-crontab -l
+# edit crontab jobs
+bash> crontab -e
 
-# validate your result from the psql instance
-psql -h localhost -U postgres -W
-\l to list the dbs
-\c host_agent
-\dt to list he tables/relations
-> SELECT * FROM host_usage;
-\q to quit psql instance
+# add this to crontab
+# make sure you are using the correct file location for your script
+* * * * * bash /home/centos/dev/jrvs/bootcamp/linux_sql/host_agent/scripts/host_usage.sh localhost 5432 host_agent postgres password 
+
+# list crontab jobs
+crontab -l
 ```
 
 ### `queries.sql`
