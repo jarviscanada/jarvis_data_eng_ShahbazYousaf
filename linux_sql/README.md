@@ -82,7 +82,7 @@ This script simplifies the setup process by starting a Docker container running 
 ./scripts/psql_docker.sh start|stop|create [db_username][db_password]
 ```
 
-**`host_info.sh`:** 
+### `host_info.sh`
 Collects hardware specification data and inserts it into the database. This script is executed only once during the initial installation of the monitoring system.
 ```
 # Script usage 
@@ -92,7 +92,7 @@ bash scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
 bash scripts/host_info.sh localhost 5432 host_agent postgres password
 ```
 
-**`host_usage.sh`:** 
+### host_usage.sh
 Collects real-time server resource usage data, including CPU and Memory, and inserts it into the database. This script is scheduled to run every minute using crontab for continuous data collection.
 ```
 # Script usage 
@@ -102,7 +102,7 @@ bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 bash scripts/host_usage.sh localhost 5432 host_agent postgres password
 ```
 
-**`crontab`:** 
+### crontab 
 The crontab configuration file specifies when and how often `host_usage.sh` should be executed to ensure data is consistently collected.
 ```
 crontab -l
