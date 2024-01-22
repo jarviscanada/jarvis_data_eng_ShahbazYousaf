@@ -5,8 +5,13 @@ London Gift Shop (LGS) is a well-established UK-based online store specializing 
 ## Project Architecture
 The London Gift Shop (LGS) project architecture centers around understanding customer behavior and improving marketing strategies for the online store. The core components include the LGS online store, a dataset (retail.sql) spanning from 01/12/2009 to 09/12/2011, and an Extract, Transform, Load (ETL) process that removes personal information for privacy. Deployment involves running Jupyter Notebook via Docker on a virtual machine (VM), with results delivered to LGS through Jupyter Notebook and GitHub. The goal is to use insights from the analysis to guide LGS in improving targeted marketing campaigns, such as email, events, and promotions.
 
-![Python Analytics Architecture Diagram](../assets/python_analytics_arch.drawio.png)
+<p align="center">
+  <img src="../assets/python_analytics_arch.drawio.png" alt="Python Analytics Architecture Diagram">
+</p>
 
+```
+![Python Analytics Architecture Diagram](../assets/python_analytics_arch.drawio.png)
+```
 ## Data Analytics and Wrangling
 Jupyter Notebook: [retail_data_analytics_wrangling.ipynb](python_data_analytics/retail_data_analytics_wrangling.ipynb)
 
