@@ -17,13 +17,13 @@ Jupyter Notebook: [retail_data_analytics_wrangling.ipynb](python_data_analytics/
 
 The data analysis involves examining attributes such as invoice number, product code, product name, quantity, invoice date, unit price, customer ID, and country. The goal is to uncover patterns and trends in customer behavior, allowing the LGS marketing team to make informed decisions. The derived analytics will serve as a foundation for the development of targeted marketing strategies, enabling LGS to augment revenue through personalized campaigns, promotions, and customer engagement initiatives. Beyond general insights, the analysis employs the RFM market research method to classify customers into three distinct segments: "Can't Lose," "Hibernating," and "Champions."
 
-Can't Lose Segment;
+**Can't Lose Segment:**
 Customers in this segment haven't made recent purchases, signaling a potential risk. To re-engage this segment, a discount and gift campaign is recommended. While these customers have a history of making substantial purchases, their recency values are currently lower than optimal. The proposed campaign should encompass both items previously purchased, and recommendations based on historical activities. Additionally, introducing new and popular products aligned with their past interests can enhance the effectiveness of the campaign. Investigating factors that may cause these customers to discontinue their purchases is crucial for long-term retention.
 
-Hibernating Segment;
+**Hibernating Segment:**
 Customers in this segment have not made a purchase for an extended period. A targeted approach involving discounts may serve as a catalyst to reignite their interest and prompt another purchase.
 
-Champions Segment;
+**Champions Segment:**
 Customers in the Champions segment significantly contribute to overall revenue. To maintain their loyalty, and sustain and enhance their shopping frequency, specialized campaigns should be implemented. These campaigns could include exclusive promotions, loyalty rewards, or personalized incentives to ensure the continued patronage of these valuable customers.
 
 
